@@ -6,6 +6,9 @@ TurboWarp is a modded version of Scratch 3.0 that allow features such as:
 - Custom Stage Size
 - Project Compiling
 - Themes
+- Custom Extensions
+- Limitation Removals
+
 Please drop by https://turbowarp.org/ to give it a shot yourself!
 
 
@@ -13,3 +16,5 @@ This project was made by Spectrus. Please do NOT copy, repost, or remix this pro
 She will be PISSED if you do otherwise.
 
 If you find this project reposted/reuploaded anywhere, please notify Spectrus on Discord at @Spectrus#2021.
+
+Thank you~ <3
