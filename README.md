@@ -25,7 +25,7 @@ Compared to Underscratch, Deltawarp includes the following:
 - The ability to reset
 - MUCH better soul collision
 
-If you wish to take a look at an example project that ran on Underscratch, feel free to check out https://scratch.mit.edu/projects/168307508/.
+If you wish to take a look at an example project that ran on Underscratch, feel free to check out https://scratch.mit.edu/projects/168307508/. (Note: It was pretty bad.)
 
 If you happen to find any bugs in the project, please feel free to contact @Spectrus#2021 on Discord!
 
