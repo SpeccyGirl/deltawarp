@@ -38,4 +38,4 @@ TurboWarp is a modded version of Scratch 3.0 that allow features such as:
 - Custom Extensions
 - Limitation Removals
 
-Please drop by https://turbowarp.org/ to give it a shot yourself! Some things in this project wouldn't have been possible without TurboWarp!
+Please drop by https://turbowarp.org/ to give it a shot yourself! Some things in this project wouldn't have been possible without TurboWarp! 
