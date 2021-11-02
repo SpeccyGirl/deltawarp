@@ -115,10 +115,10 @@
       border-radius: 4px;
     }
     .control-button:hover {
-      background: #ff4c4c26;
+      background: #00000026;
     }
     .control-button.active {
-      background: #ff4c4c59;
+      background: #00000059;
     }
     .fullscreen-button {
       background: white !important;
@@ -197,6 +197,7 @@
       scaffolding.width = 640;
       scaffolding.height = 360;
       scaffolding.resizeToFill = false;
+      scaffolding.editableLists = false;
       scaffolding.setup();
       scaffolding.appendTo(appElement);
 
@@ -215,9 +216,9 @@
       setProgress(0.1);
 
       scaffolding.setUsername("MadeBySpectrus".replace(/#/g, () => Math.floor(Math.random() * 10)));
-      scaffolding.setAccentColor("#ff4c4c");
+      scaffolding.setAccentColor("#000000");
 
-      scaffolding.addCloudProvider(new Scaffolding.Cloud.WebSocketProvider("wss://clouddata.turbowarp.org", "p4-@DeltaEngineMobileBySpectrusV3 (6) (1).sb3"));
+      scaffolding.addCloudProvider(new Scaffolding.Cloud.WebSocketProvider("wss://clouddata.turbowarp.org", "p4-@DELTAWARP1.2APublicBySpectrus.sb3"));
 
       if (false) {
         const greenFlagButton = document.createElement('img');
@@ -314,7 +315,7 @@
         ScaffoldingAddons.run(scaffolding, {"gamepad":true,"pointerlock":false,"specialCloudBehaviors":false});
       }
 
-      for (const extension of []) {
+      for (const extension of ["https://sheeptester.github.io/javascripts/utilities.js"]) {
         vm.extensionManager.loadExtensionURL(extension);
       }
     } catch (e) {
