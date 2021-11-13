@@ -4,7 +4,7 @@ She will be PISSED if you do otherwise.
 
 If you find this project reposted/reuploaded anywhere, please notify Spectrus on Discord at @Spectrus#2021.
 
-Thank you~ <3 
+Thank you~ <3
 
 
 # DELTAWARP
