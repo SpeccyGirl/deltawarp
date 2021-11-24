@@ -1,2 +1,1 @@
-{"version": "1.4a"},
-{"test": "true"}
+{"version": "1.4a", "changes": "- Test^- Test^- Test^- Test"}
