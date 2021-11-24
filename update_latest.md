@@ -1,1 +1,4 @@
-{"version": "1.4a", "changes": "- Test^- Test^- Test^- Test"}
+{
+"version": "1.4a",
+"changes": "- Test^- Test^- Test^- Test"
+}
