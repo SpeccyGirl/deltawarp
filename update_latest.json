@@ -1,4 +1,4 @@
 {
-"version": "1.4b",
-"changes": "- Menu Revamp^- Bug fixes"
+"version": "1.4c",
+"changes": "- Gave credit to Toby Fox on start screen^- Legend is now replayable in the menu^- Save Data Implemented^- Hatless Ralsei can be toggled`  in the overworld by clicking on him^- Update Board text shrinked,`  so it can display more^- Improved audio quality of AltCat's battle music^- Rareley appearing bonus menu background.`  (Has a 1 out of 10 percent chance of appearing)^- Android APK posted on GitHub^- Bug Fixes"
 }
