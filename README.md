@@ -29,10 +29,6 @@ If you wish to take a look at an example project that ran on Underscratch, feel 
 
 If you happen to find any bugs in the project, please feel free to contact @Spectrus#2021 on Discord!
 
-# Save Data Info
-It has come to my attention that Save Data may not be working correctly for everyone. 
-To fix this, allow the website to store to local files, AND save cookies, in your browser settings. 
-
 # Android APK
 https://drive.google.com/file/d/1knTdO-_-sa1SJJS9E4ckGRv-B1-BMbhP/view?usp=sharing
 
