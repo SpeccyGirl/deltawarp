@@ -191,29 +191,22 @@
     const setProgress = (progress) => {
       if (loadingInner) loadingInner.style.width = progress * 100 + '%';
     };
+    const interpolate = (a, b, t) => a + t * (b - a);
 
     try {
+      setProgress(0.1);
+
       const scaffolding = new Scaffolding.Scaffolding();
       scaffolding.width = 640;
       scaffolding.height = 360;
-      scaffolding.resizeToFill = false;
+      scaffolding.resizeMode = "preserve-ratio";
       scaffolding.editableLists = false;
       scaffolding.setup();
       scaffolding.appendTo(appElement);
 
-      // Expose values expected by third-party plugins
       window.scaffolding = scaffolding;
       window.vm = scaffolding.vm;
-
-      const {storage, vm} = scaffolding;
-      storage.addWebStore(
-        [storage.AssetType.ImageVector, storage.AssetType.ImageBitmap, storage.AssetType.Sound],
-        (asset) => new URL('./assets/' + asset.assetId + '.' + asset.dataFormat, location).href
-      );
-      storage.onprogress = (total, loaded) => {
-        setProgress(0.2 + (loaded / total) * 0.78);
-      };
-      setProgress(0.1);
+      const vm = scaffolding.vm;
 
       scaffolding.setUsername("MadeBySpectrus".replace(/#/g, () => Math.floor(Math.random() * 10)));
       scaffolding.setAccentColor("#000000");
@@ -222,6 +215,7 @@
 providers.local = new Scaffolding.Cloud.LocalStorageProvider("cloudvariables:p4-@DELTAWARP1.4CBySpectrus (3) (1) (1).sb3");
 for (const provider of Object.values(providers)) scaffolding.addCloudProvider(provider);
 scaffolding.addCloudProviderOverride("☁ SaveData", providers["local"] || null);
+scaffolding.addCloudProviderOverride("☁ open link", providers["local"] || null);
 };
 
       vm.setTurboMode(false);
@@ -239,7 +233,7 @@ scaffolding.addCloudProviderOverride("☁ SaveData", providers["local"] || null)
       });
 
       if (typeof ScaffoldingAddons !== 'undefined') {
-        ScaffoldingAddons.run(scaffolding, {"gamepad":true,"pointerlock":false,"specialCloudBehaviors":false,"pause":false});
+        ScaffoldingAddons.run(scaffolding, {"gamepad":true,"pointerlock":false,"specialCloudBehaviors":true,"pause":false});
       }
 
       for (const extension of ["https://sheeptester.github.io/javascripts/utilities.js"]) {
@@ -251,29 +245,41 @@ scaffolding.addCloudProviderOverride("☁ SaveData", providers["local"] || null)
     }
   </script>
   <script></script>
-  <script>
-    const getProjectData = () => new Promise((resolve, reject) => {
-      const xhr = new XMLHttpRequest();
-      xhr.onload = () => {
-        resolve(xhr.response);
-      };
-      xhr.onerror = () => {
-        if (location.protocol === 'file:') {
-          reject(new Error('Zip environment must be used from a website, not from a file URL.'));
-        } else {
-          reject(new Error('Request to load project data failed.'));
-        }
-      };
-      xhr.onprogress = (e) => {
-        if (e.lengthComputable) {
-          setProgress(0.1 + (e.loaded / e.total) * 0.1);
-        }
-      };
-      xhr.responseType = 'arraybuffer';
-      xhr.open("GET", "./assets/project.json");
-      xhr.send();
-    });
-  </script>
+  
+    <script>
+      const getProjectData = (function() {
+        const storage = scaffolding.storage;
+        storage.onprogress = (total, loaded) => {
+          setProgress(interpolate(0.2, 0.98, loaded / total));
+        };
+        
+        storage.addWebStore(
+          [storage.AssetType.ImageVector, storage.AssetType.ImageBitmap, storage.AssetType.Sound],
+          (asset) => new URL('./assets/' + asset.assetId + '.' + asset.dataFormat, location).href
+        );
+        return () => new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.onload = () => {
+          resolve(xhr.response);
+        };
+        xhr.onerror = () => {
+          if (location.protocol === 'file:') {
+            reject(new Error('Zip environment must be used from a website, not from a file URL.'));
+          } else {
+            reject(new Error('Request to load project data failed.'));
+          }
+        };
+        xhr.onprogress = (e) => {
+          if (e.lengthComputable) {
+            setProgress(interpolate(0.1, 0.2, e.loaded / e.total));
+          }
+        };
+        xhr.responseType = 'arraybuffer';
+        xhr.open('GET', "./assets/project.json");
+        xhr.send();
+      });
+      })();
+    </script>
   <script>
     const run = async () => {
       const projectData = await getProjectData();
