@@ -211,12 +211,7 @@
       scaffolding.setUsername("MadeBySpectrus".replace(/#/g, () => Math.floor(Math.random() * 10)));
       scaffolding.setAccentColor("#000000");
 
-      {const providers = {};
-providers.local = new Scaffolding.Cloud.LocalStorageProvider("cloudvariables:p4-@DELTAWARP1.4CBySpectrus (3) (1) (1).sb3");
-for (const provider of Object.values(providers)) scaffolding.addCloudProvider(provider);
-scaffolding.addCloudProviderOverride("☁ SaveData", providers["local"] || null);
-scaffolding.addCloudProviderOverride("☁ open link", providers["local"] || null);
-};
+      scaffolding.addCloudProvider(new Scaffolding.Cloud.LocalStorageProvider("cloudvariables:p4-@DELTAWARP1.4CBySpectrus (3) (1) (4).sb3"));
 
       vm.setTurboMode(false);
       if (vm.setInterpolation) vm.setInterpolation(false);
